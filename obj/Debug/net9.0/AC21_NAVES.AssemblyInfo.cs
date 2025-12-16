@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AC21_NAVES")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+6550aec2ab188ea70f51a030fcf7b7b09a3c2175")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+43d5c8a0e777d65b50d9552527f454e43f0f97e9")]
 [assembly: System.Reflection.AssemblyProductAttribute("AC21_NAVES")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AC21_NAVES")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
