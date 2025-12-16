@@ -92,8 +92,8 @@ while (!salir)
             if (respuestaBorrar)
             {
                 // Lógica de eliminación
-                Array.Clear(naves, 0, naves.Length); // Esto borra todas las naves
-                contadorNaves = 0; // Reinicia el contador
+                Array.Clear(naves, 0, naves.Length); 
+                contadorNaves = 0; 
                 Console.WriteLine("Todas las naves han sido eliminadas.");
             }
             else
@@ -102,7 +102,7 @@ while (!salir)
             }
             break;
 
-        case 5: // SALIR
+        case 5: // SALIR Y FINALIZAR
             Console.WriteLine("Has elegido salir de la aplicación");
             if (salir)
             {
@@ -110,6 +110,7 @@ while (!salir)
             }
             salir = true;
             break;
+
     }
     
 }
