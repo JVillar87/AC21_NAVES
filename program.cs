@@ -10,6 +10,7 @@ while (!salir)
 {
     string nombreElegido = "";
     int numeroElegido = 0;
+    int opcion = 0;
     string finalName = "";
 
     Console.WriteLine("=== SISTEMA DE FABRICACIÓN DE NAVES ESTELARES ===");
@@ -18,7 +19,7 @@ while (!salir)
     Console.WriteLine("3. Listar todas las naves");
     Console.WriteLine("4. Eliminar todas las naves");
     Console.WriteLine("5. Salir del menú");
-    int opcion = Convert.ToInt32(Console.ReadLine());
+    
 
     while (!int.TryParse(Console.ReadLine(), out opcion) || opcion < 1 || opcion > 5)
     {
@@ -56,21 +57,12 @@ while (!salir)
             break;
 
         case 2: // CAMBIAR NOMBRE
-            Console.WriteLine("Has elegido la opción 2");
-            Console.WriteLine($"¿Quieres cambiar el nombre (s/n)?");
-            string respuesta = Console.ReadLine() ?? "";
-
-            if (respuesta == "s" || respuesta == "S")
-            {
-                Console.Write($"✓ Nave renombrada: {finalName}");
-            }
-
+            CambiarNombre(finalName);
             break;
 
         case 3: // LISTAR NAVES
             Console.WriteLine("Has elegido la opción 3");
             Console.WriteLine($"=== NAVES FABRICADAS ===");
-            contadorNaves++;
 
             if (contadorNaves > 0)
             {
@@ -89,28 +81,53 @@ while (!salir)
 
         case 4: // BORRAR UNA O TODAS
             Console.WriteLine("Quieres borrar tu nave, (s/n)?");
-            string respuesta2 = Console.ReadLine() ?? "";
-            if (respuesta2 == "s" || respuesta2 == "S")
+            bool respuestaBorrar = ObtenerRespuestaSiNo();
+            if (respuestaBorrar)
             {
-                // Lógica de eliminación
-                Array.Clear(naves, 0, naves.Length); // Esto borra todas las naves
-                contadorNaves = 0; // Reinicia el contador
+                Array.Clear(naves, 0, naves.Length);
+                contadorNaves = 0;
                 Console.WriteLine("Todas las naves han sido eliminadas.");
-
             }
-            else if (respuesta2 == "n" || respuesta2 == "N")
+            else
             {
                 // No borrar
             }
             break;
 
-        case 5: // SALIR
+        case 5: // SALIR Y FINALIZAR
             Console.WriteLine("Has elegido salir de la aplicación");
+            if (salir)
+            {
+                Console.WriteLine("Programa finalizado.");
+            }
             salir = true;
             break;
 
-        default: // SALIR
-            Console.WriteLine("Elige una opcion entre 1 y 4");
-            break;
     }
+
+}
+
+
+static void CambiarNombre(string finalName)
+{
+    Console.WriteLine("Has elegido la opción 2");
+    Console.WriteLine($"¿Quieres cambiar el nombre (s/n)?");
+    string respuesta = Console.ReadLine() ?? "";
+
+    if (respuesta == "s" || respuesta == "S")
+    {
+        Console.Write($"✓ Nave renombrada: {finalName}");
+    }
+}
+
+
+static bool ObtenerRespuestaSiNo()
+{
+    string respuesta = Console.ReadLine()?.ToLower() ?? "";
+    while (respuesta != "s" && respuesta != "n")
+    {
+        Console.WriteLine("Por favor, ingresa 's' para sí o 'n' para no.");
+        respuesta = Console.ReadLine()?.ToLower() ?? "";
+    }
+    return respuesta == "s";
 }
